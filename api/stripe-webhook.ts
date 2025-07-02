@@ -28,13 +28,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       if (email) {
         await resend.emails.send({
-          from: 'Seu App <noreply@pedagoteca.io>',
+          from: 'Pedagoteca App <noreply@pedagoteca.io>',
           to: email,
-          subject: 'Compra confirmada!',
+          subject: 'Welcome to Pedagoteca! 🎉',
           html: `
-            <h1>Obrigado pela compra!</h1>
-            <p>Seu acesso está pronto. Clique no botão abaixo:</p>
-            <a href="https://seudominio.com/acesso/${session.id}" style="padding:12px 24px;background:#6366f1;color:#fff;text-decoration:none;border-radius:6px;">Acessar agora</a>
+            <div style="font-family: Arial, sans-serif; color: #333; padding: 20px;">
+              <h1 style="color: #6366f1;">Welcome to Pedagoteca!</h1>
+              <p>Hello, your Pedagoteca access code is ready!!</p>
+              <p><strong>Your access code is:</strong> <span style="background-color:#f3f3f3; padding:4px 8px; border-radius:4px;">pedagoteca25</span></p>
+              <p>Enter your name, email address used for purchase and your access code to unlock access to the application with premium features.</p>
+              <a href="https://pedagoteca.io/install/"
+                 style="display:inline-block; margin-top:20px; padding: 14px 24px; background-color: #6366f1; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                👉 CLICK HERE TO INSTALL THE APP
+              </a>
+              <p style="margin-top: 30px;">If you have any questions, please do not hesitate to send an email to <a href="mailto:pedagotecabrasil@gmail.com">pedagotecabrasil@gmail.com</a>.</p>
+            </div>
           `,
         });
       }
