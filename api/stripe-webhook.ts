@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       if (email) {
         await resend.emails.send({
-          from: 'Seu App <noreply@seudominio.com>',
+          from: 'Seu App <noreply@pedagoteca.io>',
           to: email,
           subject: 'Compra confirmada!',
           html: `
