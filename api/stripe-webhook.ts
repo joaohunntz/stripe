@@ -34,14 +34,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (email) {
       await resend.emails.send({
-        from: 'Seu App <noreply@seudominio.com>',
+        from: 'Seu App <noreply@pedagoteca.io>',
         to: email,
         subject: 'Compra confirmada!',
-        html: \`
+        html: `
           <h1>Obrigado pela compra!</h1>
-          <p>Seu acesso está pronto. Clique no botão abaixo:</p>
-          <a href="https://seudominio.com/acesso/${session.id}" style="padding:12px 24px;background:#6366f1;color:#fff;text-decoration:none;border-radius:6px;">Acessar agora</a>
-        \`,
+          <p>Olá ${session.customer_details.name || ''}, seu acesso está pronto.</p>
+          <p>Clique no botão abaixo para acessar seu conteúdo:</p>
+          <a href="https://seudominio.com/acesso/${session.id}" style="padding:12px 24px;background:#6366f1;color:#fff;text-decoration:none;border-radius:6px;display:inline-block;margin-top:12px;">Acessar agora</a>
+        `,
       });
     }
   }
